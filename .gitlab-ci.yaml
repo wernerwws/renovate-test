@@ -5,6 +5,8 @@ stages:
   - prepare-ci
   - exec-ci
 
+ENV NODE_VERSION=10.19.0 # github-tags/nodejs/node&versioning=node
+
 variables:
   AWS_STS_REGIONAL_ENDPOINTS: "regional"
   # renovate: datasource=docker depName=de.db.ri.tcd/terragrunt-aws registry=db-ris-docker-release-local.bahnhub.tech.rz.db.de versioning=docker

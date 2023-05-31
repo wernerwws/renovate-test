@@ -17,7 +17,8 @@ module.exports = {
         {
             "fileMatch": [".*"],
             "matchStrings": [
-                "(.*image|.*IMAGE)[^a-zA-Z]*(?<registryUrl>.*?)\/(?<depName>.*?):(?<currentValue>.*?)@?(?<currentDigest>sha256:[a-f0-9]+)?\"?$"
+                "ENV NODE_VERSION=10.19.0 # github-tags/nodejs/node&versioning=node",
+                // "(.*image|.*IMAGE)[^a-zA-Z]*(?<registryUrl>.*?)\/(?<depName>.*?):(?<currentValue>.*?)@?(?<currentDigest>sha256:[a-f0-9]+)?\"?$"
             ],
             "datasourceTemplate": "docker"
         }
