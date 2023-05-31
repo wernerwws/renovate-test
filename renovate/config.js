@@ -15,7 +15,7 @@ module.exports = {
     ],
     "regexManagers": [
         {
-            "fileMatch": ["^.*.gitlab-ci.y[a]?ml$"],
+            "fileMatch": [".*"],
             "matchStrings": [
                 "(.*image|.*IMAGE)[^a-zA-Z]*(?<registryUrl>.*?)\/(?<depName>.*?):(?<currentValue>.*?)@?(?<currentDigest>sha256:[a-f0-9]+)?\"?$"
             ],
