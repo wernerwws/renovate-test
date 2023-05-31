@@ -21,6 +21,13 @@ module.exports = {
                 // "(.*image|.*IMAGE)[^a-zA-Z]*(?<registryUrl>.*?)\/(?<depName>.*?):(?<currentValue>.*?)@?(?<currentDigest>sha256:[a-f0-9]+)?\"?$"
             ],
             "datasourceTemplate": "docker"
-        }
+        },
+        {
+            "fileMatch": ["^Dockerfile$"],
+            "matchStrings": [
+                "datasource=(?<datasource>.*?) depName=(?<depName>.*?)( versioning=(?<versioning>.*?))?\\sENV .*?_VERSION=(?<currentValue>.*)\\s"
+            ],
+            "versioningTemplate": "{{#if versioning}}{{{versioning}}}{{else}}semver{{/if}}"
+        },
     ]
 }
