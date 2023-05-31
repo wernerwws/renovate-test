@@ -13,4 +13,13 @@ module.exports = {
         "gitlabci",
         "gomod",
     ],
+    "regexManagers": [
+        {
+            "fileMatch": ["^.*.gitlab-ci.yml$"],
+            "matchStrings": [
+                "(.*image|.*IMAGE)[^a-zA-Z]*(?<registryUrl>.*?)\/(?<depName>.*?):(?<currentValue>.*?)@?(?<currentDigest>sha256:[a-f0-9]+)?\"?$"
+            ],
+            "datasourceTemplate": "docker"
+        }
+    ]
 }
