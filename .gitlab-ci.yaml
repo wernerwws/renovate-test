@@ -1,0 +1,63 @@
+image: db-ris-docker-release-local.bahnhub.tech.rz.db.de/base/alpine3.16:latest
+
+stages:
+  - pre-commit
+  - prepare-ci
+  - exec-ci
+
+variables:
+  AWS_STS_REGIONAL_ENDPOINTS: "regional"
+  # renovate: datasource=docker depName=de.db.ri.tcd/terragrunt-aws registry=db-ris-docker-release-local.bahnhub.tech.rz.db.de versioning=docker
+  TERRAGRUNT_DOCKER_IMAGE: db-ris-docker-release-local.bahnhub.tech.rz.db.de/de.db.ri.tcd/terragrunt-aws:1.4.4-stable
+  TERRAGRUNT_PARALLELISM: 5
+  CI_JOBS_DEPTH: 5
+  TG_RUN_ALL_DESTROY_DEPTH_MIN: 2
+  TG_RUN_ALL_DESTROY_DEPTH_MAX: 3
+
+.tags:
+  tags: [ci, mgln, privilege]
+
+.generate:ci:jobs:
+  stage: prepare-ci
+  variables:
+  script: ./ci/scripts/generate_ci_jobs.sh > child-gitlab-ci.yaml
+  artifacts:
+    paths:
+      - child-gitlab-ci.yaml
+  extends: .tags
+
+check:pre-commit:
+  stage: pre-commit
+  image:
+    name: ghcr-remote.bahnhub.tech.rz.db.de/antonbabenko/pre-commit-terraform:v1.79.1@sha256:4b6af0016ca551c4966911f0dd4c510d82cfeab12f08e111bbb73ef87b65c165
+    entrypoint:
+      - ""
+  script:
+    - pre-commit run -a
+  extends: .tags
+
+generate:ci:jobs:
+  extends: .generate:ci:jobs
+
+generate:ci:jobs:destroy:
+  when: manual
+  variables:
+    GENERATE_DESTROY_JOBS: "true"
+  extends: .generate:ci:jobs
+
+execute:ci:jobs:
+  stage: exec-ci
+  trigger:
+    include:
+      - artifact: child-gitlab-ci.yaml
+        job: generate:ci:jobs
+
+execute:ci:jobs:destroy:
+  stage: exec-ci
+  needs:
+    - job: generate:ci:jobs:destroy
+      artifacts: true
+  trigger:
+    include:
+      - artifact: child-gitlab-ci.yaml
+        job: generate:ci:jobs:destroy
