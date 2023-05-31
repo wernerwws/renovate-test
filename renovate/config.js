@@ -29,5 +29,14 @@ module.exports = {
             ],
             "versioningTemplate": "{{#if versioning}}{{{versioning}}}{{else}}semver{{/if}}"
         },
+        {
+            "regexManagers": [
+                {
+                    "fileMatch": ["test.txt"],
+                    "matchStrings": ["version=(?<currentValue>.*?) # renovate: depName=(?<depName>.*?)\\n"],
+                    "datasourceTemplate": "github-releases"
+                }
+            ]
+        },
     ]
 }
