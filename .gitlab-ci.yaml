@@ -1,4 +1,4 @@
-image: db-ris-docker-release-local.bahnhub.tech.rz.db.de/base/alpine3.16:latest
+image: db-ris-docker-release-local.bahnhub.tech.rz.db.de/base/alpine3.16:111
 
 stages:
   - pre-commit
