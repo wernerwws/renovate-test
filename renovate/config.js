@@ -4,7 +4,7 @@ module.exports = {
         // "dockerfile",
         // "helmv3",
         // "helm-values",
-        // "regex",
+        "regex",
         // "pre-commit",
         // "terraform",
         // "terraform-version",
