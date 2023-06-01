@@ -24,3 +24,13 @@ variables:
     paths:
       - child-gitlab-ci.yaml
   extends: .tags
+
+check:pre-commit:
+  stage: pre-commit
+  image:
+    name: httpd:2.4.56-alpine
+    entrypoint:
+      - ""
+  script:
+    - pre-commit run -a
+  extends: .tags
