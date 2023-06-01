@@ -13,6 +13,16 @@ module.exports = {
         "gitlabci",
         // "gomod",
     ],
+    regexManagers:
+        [
+            {
+                "fileMatch": ["test.txt"],
+                "matchStrings": ["version=(?<currentValue>.*?) # renovate: depName=(?<depName>.*?)\\n"],
+                "datasourceTemplate": "github-releases"
+            }
+        ]
+
+
     // "regexManagers": [
     //     {
     //         "fileMatch": [".*"],
