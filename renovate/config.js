@@ -19,7 +19,14 @@ module.exports = {
                 "fileMatch": ["test.txt"],
                 "matchStrings": ["version=(?<currentValue>.*?) # renovate: depName=(?<depName>.*?)\\n"],
                 "datasourceTemplate": "github-releases"
-            }
+            },
+            {
+                    "fileMatch": [".*"],
+                    "matchStrings": [
+                        "datasource=(?<datasource>.*?) depName=(?<depName>.*?)( versioning=(?<versioning>.*?))?\\sENV .*?_VERSION=(?<currentValue>.*)\\s"
+                    ],
+                    "versioningTemplate": "{{#if versioning}}{{{versioning}}}{{else}}semver{{/if}}"
+                },
         ]
 
 
