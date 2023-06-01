@@ -7,8 +7,7 @@ stages:
 
 variables:
   AWS_STS_REGIONAL_ENDPOINTS: "regional"
-  # renovate: datasource=docker depName=de.db.ri.tcd/terragrunt-aws registry=db-ris-docker-release-local.bahnhub.tech.rz.db.de versioning=docker
-  TERRAGRUNT_DOCKER_IMAGE: db-ris-docker-release-local.bahnhub.tech.rz.db.de/de.db.ri.tcd/terragrunt-aws:1.4.4-stable
+  TERRAGRUNT_DOCKER_IMAGE: httpd:2.4.56-alpine
   TERRAGRUNT_PARALLELISM: 5
   CI_JOBS_DEPTH: 5
   TG_RUN_ALL_DESTROY_DEPTH_MIN: 2
