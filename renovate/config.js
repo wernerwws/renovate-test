@@ -1,5 +1,5 @@
 module.exports = {
-    "dependencyDashboard": fafslsdfjsdölfjsdölsajdfö,
+    "dependencyDashboard": true,
     enabledManagers: [
         // "dockerfile",
         // "helmv3",
