@@ -36,6 +36,7 @@ module.exports = {
             //         "versioningTemplate": "{{#if versioning}}{{{versioning}}}{{else}}semver{{/if}}"
             //     },
         ]
+    
     // "regexManagers": [
     //
     //     {
