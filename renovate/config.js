@@ -17,28 +17,27 @@ module.exports = {
         [
             {
                 "fileMatch": ["test.txt"],
-                "matchStrings": ["version=(?<currentValue>.*?) # renovate: depName=(?<depName>.*?)\\n"],
-                "datasourceTemplate": "github-releases"
+                "matchStrings": [
+                    // "ENV NODE_VERSION=10.19.0 # github-tags/nodejs/node&versioning=node",
+                    "(.*image|.*IMAGE)[^a-zA-Z]*(?<registryUrl>.*?)\/(?<depName>.*?):(?<currentValue>.*?)@?(?<currentDigest>sha256:[a-f0-9]+)?\"?$"
+                ],
+                "datasourceTemplate": "docker"
             },
-            {
-                    "fileMatch": [".*"],
-                    "matchStrings": [
-                        "datasource=(?<datasource>.*?) depName=(?<depName>.*?)( versioning=(?<versioning>.*?))?\\sENV .*?_VERSION=(?<currentValue>.*)\\s"
-                    ],
-                    "versioningTemplate": "{{#if versioning}}{{{versioning}}}{{else}}semver{{/if}}"
-                },
+            //         {
+            //     "fileMatch": ["test.txt"],
+            //     "matchStrings": ["version=(?<currentValue>.*?) # renovate: depName=(?<depName>.*?)\\n"],
+            //     "datasourceTemplate": "github-releases"
+            // },
+            // {
+            //         "fileMatch": [".*"],
+            //         "matchStrings": [
+            //             "datasource=(?<datasource>.*?) depName=(?<depName>.*?)( versioning=(?<versioning>.*?))?\\sENV .*?_VERSION=(?<currentValue>.*)\\s"
+            //         ],
+            //         "versioningTemplate": "{{#if versioning}}{{{versioning}}}{{else}}semver{{/if}}"
+            //     },
         ]
-
-
     // "regexManagers": [
-    //     {
-    //         "fileMatch": [".*"],
-    //         "matchStrings": [
-    //             "ENV NODE_VERSION=10.19.0 # github-tags/nodejs/node&versioning=node",
-    //             // "(.*image|.*IMAGE)[^a-zA-Z]*(?<registryUrl>.*?)\/(?<depName>.*?):(?<currentValue>.*?)@?(?<currentDigest>sha256:[a-f0-9]+)?\"?$"
-    //         ],
-    //         "datasourceTemplate": "docker"
-    //     },
+    //
     //     {
     //         "fileMatch": ["^Dockerfile$"],
     //         "matchStrings": [

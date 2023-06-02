@@ -1,1 +1,2 @@
 version=1.2.3 # renovate: depName=suzuki-shunsuke/aqua
+  TERRAGRUNT_DOCKER_IMAGE: httpd:2.4.56-alpine
