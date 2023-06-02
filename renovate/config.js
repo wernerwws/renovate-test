@@ -10,7 +10,7 @@ module.exports = {
         // "terraform-version",
         // "terragrunt",
         // "terragrunt-version",
-        "gitlabci",
+        // "gitlabci",
         // "gomod",
     ],
     regexManagers:
