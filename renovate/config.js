@@ -19,7 +19,8 @@ module.exports = {
                 "fileMatch": ["test.txt"],
                 "matchStrings": [
                     // "ENV NODE_VERSION=10.19.0 # github-tags/nodejs/node&versioning=node",
-                    "(.*image|.*IMAGE)[^a-zA-Z]*(?<registryUrl>.*?)\\/(?<depName>.*?):(?<currentValue>.*?)@?(?<currentDigest>sha256:[a-f0-9]+)?\"?$"
+                    //"(.*image|.*IMAGE)[^a-zA-Z]*(?<registryUrl>.*?)\\/(?<depName>.*?):(?<currentValue>.*?)@?(?<currentDigest>sha256:[a-f0-9]+)?\"?$"
+                    "(TERRAGRUNT_DOCKER_IMAGE)[:=]\\s*(?<registryUrl>[^\\/]+)\\/(?<depName>[^:]+):(?<currentValue>[^\\n\\r\"]+)"
                 ],
                 "datasourceTemplate": "docker"
             },
