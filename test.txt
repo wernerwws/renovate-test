@@ -3,7 +3,7 @@ version=1.2.3 # renovate: depName=suzuki-shunsuke/aqua
 
 
 module "vpc_example_complete" {
-  source  = "terraform-aws-modules/vpc/aws//examples/complete"
+  source  = "terraform-aws-modules/vpc/aws"
   version = "5.0.0"
 }
 
