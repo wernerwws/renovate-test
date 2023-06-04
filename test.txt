@@ -2,13 +2,10 @@ version=1.2.3 # renovate: depName=suzuki-shunsuke/aqua
   TERRAGRUNT_DOCKER_IMAGE: registry.hub.docker.com/httpd:2.4.56-alpine
 
 
-module "consul" {
-  source  = "hashicorp/consul/aws"
-  version = "0.0.5"
-
-  servers = 3
+module "vpc_example_complete" {
+  source  = "terraform-aws-modules/vpc/aws//examples/complete"
+  version = "5.0.0"
 }
-
 
   source = "${local.base_source_url}?ref=0.0.3"
 
