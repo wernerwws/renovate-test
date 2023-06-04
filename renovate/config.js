@@ -6,13 +6,20 @@ module.exports = {
         // "helm-values",
         "regex",
         // "pre-commit",
-        // "terraform",
-        // "terraform-version",
+        "terraform",
+        "terraform-version",
         // "terragrunt",
         // "terragrunt-version",
         // "gitlabci",
         // "gomod",
     ],
+terraform: {
+    "fileMatch": ["test.txt"],
+},
+    "terraform-version": {
+        "fileMatch": ["test.txt"],
+    },
+
     regexManagers:
         [
             {
