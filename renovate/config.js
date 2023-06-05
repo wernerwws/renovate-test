@@ -18,7 +18,7 @@ module.exports = {
             {
                 "fileMatch": ["test.txt"],
                 "matchStrings": [
-                    "(.*image|.*IMAGE)[^a-zA-Z]*(?<registryUrl>.*?)\\/(?<depName>.*?):(?<currentValue>.*?)\\s"
+                    "(.*image|.*IMAGE)[^a-zA-Z]*(?<registryUrl>.*?)\\/(?<depName>.*?):(?<currentValue>.*?)@?(?<currentDigest>sha256:[a-f0-9]+)?\\s",
                 ],
                 "datasourceTemplate": "docker"
             },
