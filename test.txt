@@ -1,4 +1,4 @@
-  TERRAGRUNT_DOCKER_IMAGE: registry.hub.docker.com/httpd:2.4.56-alpine
+  TERRAGRUNT_DOCKER_IMAGE: registry.hub.docker.com/httpd:2.4.57-alpine
 
   TERRAGRUNT_DOCKER_IMAGE: registry.hub.docker.com/httpd:2.4.56-alpine@sha256:a6b7be1808b8443dde696c5f108be1cb6e7641d6b281ef7598df012c1d6871f8
 
