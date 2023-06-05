@@ -18,14 +18,14 @@ module.exports = {
             {
                 "fileMatch": ["test.txt"],
                 "matchStrings": [
-                    "(.*image|.*IMAGE)[^a-zA-Z]*(?<registryUrl>.*?)\\/(?<depName>.*?):(?<currentValue>.*?)$"
+                    "(.*image|.*IMAGE)[^a-zA-Z]*(?<registryUrl>.*?)\\/(?<depName>.*?):(?<currentValue>.*?)\\s"
                 ],
                 "datasourceTemplate": "docker"
             },
             {
                 "fileMatch": ["test.txt"],
                 "matchStrings": [
-                    "#\\s?renovate: datasource=(?<datasource>.*?) depName=(?<depName>.*?)( registry=(?<registryUrl>.*?))?( versioning=(?<versioning>.*?))?\\s.*ref=(?<currentValue>.*)\""
+                    "(#|\\/\\/)\\s?renovate: datasource=(?<datasource>.*?) depName=(?<depName>.*?)( registry=(?<registryUrl>.*?))?( versioning=(?<versioning>.*?))?\\s.*ref=(?<currentValue>.*)\""
                 ],
             },
 
