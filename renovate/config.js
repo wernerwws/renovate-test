@@ -18,13 +18,28 @@ module.exports = {
             {
                 "fileMatch": ["test.txt"],
                 "matchStrings": [
-                    // "ENV NODE_VERSION=10.19.0 # github-tags/nodejs/node&versioning=node",
                     "(.*image|.*IMAGE)[^a-zA-Z]*(?<registryUrl>.*?)\\/(?<depName>.*?):(?<currentValue>.*?)$"
- //                   "(TERRAGRUNT_DOCKER_IMAGE)[:=]\\s*(?<registryUrl>[^\\/]+)\\/(?<depName>[^:]+):(?<currentValue>[^\\n\\r\"]+)"
                 ],
                 "datasourceTemplate": "docker"
             },
-            //         {
+            {
+                "fileMatch": ["test.txt"],
+                "matchStrings": [
+                    "#\\s?renovate: datasource=(?<datasource>.*?) depName=(?<depName>.*?)( registry=(?<registryUrl>.*?))?( versioning=(?<versioning>.*?))?\\s.*ref=(?<currentValue>.*)\""
+                ],
+            },
+
+                    // "currentValue": "5.0.0",
+                    // "depType": "module",
+                    // "depName"/"packageName": "terraform-aws-modules/vpc/aws",
+                    // "datasource": "terraform-module",
+                    // "versioning": "hashicorp",
+                    // "sourceUrl": "https://github.com/terraform-aws-modules/terraform-aws-vpc",
+                    // "registryUrl": "https://registry.terraform.io",
+                    // "homepage": "https://registry.terraform.io/modules/terraform-aws-modules/vpc/aws",
+                    // "currentVersion": "5.0.0",
+
+//         {
             //     "fileMatch": ["test.txt"],
             //     "matchStrings": ["version=(?<currentValue>.*?) # renovate: depName=(?<depName>.*?)\\n"],
             //     "datasourceTemplate": "github-releases"

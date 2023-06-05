@@ -1,5 +1,8 @@
   TERRAGRUNT_DOCKER_IMAGE: registry.hub.docker.com/httpd:2.4.56-alpine
 
-  source = "${local.base_source_url}?ref=0.0.3"
+
+
+  # renovate: datasource=terraform-module depName=ris/magellan/infrastructure/terraform/modules/terraform-aws-s3-bucket-cmk registry=https://git.tech.rz.db.de versioning=hashicorp
+  source = "${local.base_source_url}?ref=0.2.2"
 
 
