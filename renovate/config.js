@@ -13,7 +13,17 @@ module.exports = {
         // "gitlabci",
         // "gomod",
     ],
-    regexManagers:
+    "packageRules": [
+        {
+            "matchDatasources": ["terraform-provider"],
+            "postUpgradeTasks": {
+                "commands": ["/opt/terraform/1.3.9/terraform init -upgrade"],
+                "fileFilters": ["**/.terraform.lock.hcl"],
+                "executionMode": "branch"
+            },
+        }
+    ],
+regexManagers:
         [
             {
                 "fileMatch": ["test.txt"],
