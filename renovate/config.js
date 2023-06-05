@@ -13,13 +13,6 @@ module.exports = {
         // "gitlabci",
         // "gomod",
     ],
-terraform: {
-    "fileMatch": ["test.txt"],
-},
-    "terraform-version": {
-        "fileMatch": ["test.txt"],
-    },
-
     regexManagers:
         [
             {
